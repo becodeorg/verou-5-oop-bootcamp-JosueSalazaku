@@ -9,10 +9,9 @@ $basket = [
 foreach ($basket as $item => $deatails) {
     $pieces = $deatails['pieces'];
     $price = $deatails['price'];
-
-
 }
 
-echo($iteù);
+$fruitTaxRate = 0.06;
+$wineTaxRate = 0.21;
 
 var_dump($basket);
