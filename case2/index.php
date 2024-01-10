@@ -28,7 +28,6 @@ foreach ($basket as $itemName => $itemDetails) {
     $totalPrice += $quantity * $discountedPrice;
 }
 
-
 $totalTax = $fruitTax + $wineTax;
 $totalPriceWithTax = $totalPrice + $totalTax;
 
@@ -36,4 +35,4 @@ echo "Total Tax (Fruit): €$fruitTax <br>";
 echo "Total Tax (Wine): €$wineTax <br>";
 echo "Total Price with Tax: €$totalPriceWithTax <br>";
 
-var_dump($basket);
+
