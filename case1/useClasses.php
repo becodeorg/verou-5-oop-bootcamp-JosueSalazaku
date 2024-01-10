@@ -59,6 +59,7 @@ class Basket
 
 }
 
+// var_dump(totalTax());
 
 echo " <br>Hello world <br>";
 
