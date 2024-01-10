@@ -59,11 +59,20 @@ class Basket
 
 }
 
+//items
 $banana = new Item('Bananas', 6, 1, 'fruit');
 $apple = new Item('Apple', 3, 1.5, 'fruit');
 $wine = new Item('Wine', 2, 10, 'Alcohol');
 
+// items inside the basket
+
+$basket = new Basket();
+$basket->addItem($banana);
+$basket->addItem($apple);
+$basket->addItem($wine);
 
 
-echo " <br>Hello world <br>";
+echo "<br> Total Tax (Fruit): €$fruitTax <br>";
+echo "Total Tax (Wine): €$wineTax <br>";
+echo "Total Price with Tax: €$totalPriceWithTax <br>";
 
