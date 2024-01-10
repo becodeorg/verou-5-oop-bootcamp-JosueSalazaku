@@ -2,7 +2,7 @@
 
 require 'index.php';
 
-class item {
+class Item {
 
     public string $name;
     public int $pieces;
@@ -17,8 +17,13 @@ class item {
     }
 }
 
-class basket {
+class Basket {
     public array $items = [];
+
+    public function addItem(Item $item) 
+    {
+        $this->item[] = $item;
+    }
 }
 
 
