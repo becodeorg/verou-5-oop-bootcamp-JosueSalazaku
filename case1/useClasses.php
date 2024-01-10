@@ -17,6 +17,9 @@ class item {
     }
 }
 
+class basket {
+    public array $items = [];
+}
 
 
 echo " <br>Hello world <br>";
