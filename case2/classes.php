@@ -2,14 +2,15 @@
 
 require 'index.php';
 
-class Item {
-
+class Item
+{
     public string $name;
     public int $pieces;
     public float $price;
     public string $type;
 
-    public function __construct(string $name, int $pieces, float $price, string $type) {
+    public function __construct(string $name, int $pieces, float $price, string $type)
+    {
         $this->name = $name;
         $this->pieces = $pieces;
         $this->price = $price;
@@ -17,10 +18,11 @@ class Item {
     }
 }
 
-class Basket 
+class Basket
 {
     public array $items = [];
-    public function addItem(Item $item) 
+
+    public function addItem(Item $item)
     {
         $this->items[] = $item;
     }
@@ -31,30 +33,33 @@ class Basket
         $wineTaxRate = 0.21;
         $fruitTax = 0;
         $wineTax = 0;
-    
+
         foreach ($this->items as $item) {
-            $totalPrice = $item->pieces * $item->price;
-    
+            $discountedPrice = $item->price * 0.5; 
+
+            $totalPrice = $item->pieces * $discountedPrice;
+
             if ($item->type === 'fruit') {
                 $fruitTax += $totalPrice * $fruitTaxRate;
             } elseif ($item->type === 'Alcohol') {
                 $wineTax += $totalPrice * $wineTaxRate;
             }
         }
-    
+
         return $fruitTax + $wineTax;
     }
-    
-    public function totalPriceWithTax(): float {
+
+    public function totalPriceWithTax(): float
+    {
         $totalPrice = 0;
 
         foreach ($this->items as $item) {
-            $totalPrice *= $item->pieces * $item->price;
+            $discountedPrice = $item->price * 0.5; 
+            $totalPrice += $item->pieces * $discountedPrice;
         }
 
-        return $totalPrice * $this->totalTax();
+        return $totalPrice + $this->totalTax();
     }
-
 }
 
 //new items
@@ -69,7 +74,14 @@ $basket->addItem($apple);
 $basket->addItem($wine);
 
 
+echo " <br>USE CASE 1 <br>";
 echo "<br> Total Tax (Fruit): €$fruitTax <br>";
 echo "Total Tax (Wine): €$wineTax <br>";
 echo "Total Price with Tax: €$totalPriceWithTax <br>";
+
+echo " <br>USE CASE 2 <br>";
+echo " <br> Total Tax (Fruit): €{$basket->totalTax()} <br>";
+echo "Total Price with Tax: €{$basket->totalPriceWithTax()} <br>";
+
+
 

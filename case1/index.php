@@ -40,6 +40,7 @@ function totalPrice($basket) {
 TotalTax($basket);
 $totalPriceWithTax = totalPrice($basket) + $totalTax;
 
+echo "CASSE 1:";
 echo "Total Tax (Fruit): €$fruitTax <br>";
 echo "Total Tax (Wine): €$wineTax <br>";
 echo "Total Price with Tax: €$totalPriceWithTax <br>";
