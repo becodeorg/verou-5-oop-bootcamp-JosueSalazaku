@@ -48,7 +48,13 @@ class Basket
     }
     
     public function totalPriceWithTax(): float {
-        
+        $totalPrice = 0;
+
+        foreach ($this->items as $item) {
+            $totalPrice *= $item->pieces * $item->price;
+        }
+
+        return $totalPrice * $this->totalTax();
     }
 
 }
