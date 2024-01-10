@@ -59,7 +59,11 @@ class Basket
 
 }
 
-// var_dump(totalTax());
+$banana = new Item('Bananas', 6, 1, 'fruit');
+$apple = new Item('Apple', 3, 1.5, 'fruit');
+$wine = new Item('Wine', 2, 10, 'Alcohol');
+
+
 
 echo " <br>Hello world <br>";
 
