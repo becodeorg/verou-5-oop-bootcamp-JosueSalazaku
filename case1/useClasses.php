@@ -17,7 +17,8 @@ class Item {
     }
 }
 
-class Basket {
+class Basket 
+{
     public array $items = [];
 
     public function addItem(Item $item) 
@@ -46,6 +47,9 @@ class Basket {
         return $fruitTax + $wineTax;
     }
     
+    public function totalPriceWithTax(): float {
+        
+    }
 
 }
 
