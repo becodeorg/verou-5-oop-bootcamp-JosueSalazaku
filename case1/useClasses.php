@@ -22,29 +22,31 @@ class Basket {
 
     public function addItem(Item $item) 
     {
-        $this->item[] = $item;
+        $this->items[] = $item;
 
     }
 
-    public function totalTax() 
+    public function totalTax(): float
     {
         $fruitTaxRate = 0.06;
         $wineTaxRate = 0.21;
         $fruitTax = 0;
         $wineTax = 0;
-
-        foreach ($this->item = $item) {
-            $pieces = $item['pieces'];
-            $price = $item['price'];
-            $totalPrice += $pieces * $price;
-
-        if ($item['type'] === 'fruit') {
-            $fruitTax += $pieces * $price * $fruitTaxRate;
-        } elseif ($item['type'] === 'Alcohol') {
-            $wineTax += $pieces * $price * $wineTaxRate;
+    
+        foreach ($this->items as $item) {
+            $totalPrice = $item->pieces * $item->price;
+    
+            if ($item->type === 'fruit') {
+                $fruitTax += $totalPrice * $fruitTaxRate;
+            } elseif ($item->type === 'Alcohol') {
+                $wineTax += $totalPrice * $wineTaxRate;
+            }
         }
-        }
+    
+        return $fruitTax + $wineTax;
     }
+    
+
 }
 
 
