@@ -16,7 +16,11 @@ Have an array with two articles, one ad and one vacancy. Use this array to show 
 Bonus: an article can be marked as "breaking news". If this is the case, the title is prepended with "BREAKING: ". Extra bonus: display all the content with the appropriate html tags.
  *  */  
 
-class Content
+
+ require_once 'content.php';
+
+ class Ad extends Content
+
 {
     public string $title;
     public string $text;
@@ -24,17 +28,18 @@ class Content
 
     public function __construct(string $title,  string $text)
     {
-        $this->title = $title;
-        $this->text = $text;
+        parent::__construct($title, $text);
     }
 
-    public function getTitle() {
-        return $this->title;
+    public function displayTitle(): string
+    {
+        return strtoupper($this->title);
     }
 
-    public function getText() {
+    public function getText(): string
+    {
         return $this->text;
     }
 }
 
-echo "Content";
+echo "<br>Adds";

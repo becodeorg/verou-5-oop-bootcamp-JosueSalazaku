@@ -17,24 +17,26 @@ Bonus: an article can be marked as "breaking news". If this is the case, the tit
  *  */  
 
 
-require_once 'content.php'
+ require_once 'content.php';
 
-class Article extends Content 
-{
-    public bool $isBreakingNews;
+ class Article extends Content 
+ {
+     public bool $isBreakingNews;
+ 
+     public function __construct(string $title, string $text, bool $isBreakingNews)
+     {
+         parent::__construct($title, $text); // Add a semicolon here
+         $this->isBreakingNews = $isBreakingNews;
+     }
+ 
+     public function DisplayTitle() {
+         return $this->isBreakingNews ? "BREAKING: {$this->title}" : $this->title;
+     }
+ 
+     public function getText(): string
+     {
+         return $this->text;
+     }
+ }
 
-    public function __construct(string $title, string $text, bool $isBreakingNews)
-    {
-        parent::__construct($title, $text)
-        $this->isBreakingNews = $isBreakingNews;
-    }
-
-    public function DisplayTitle() {
-        return $this->isBreakingNews ? "BREAKING: {$this->title}" : $this->title;
-    }
-
-    public function getText(): string
-    {
-        return $this->text;
-    }
-}
+ echo "<br>Article";
