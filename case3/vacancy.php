@@ -19,25 +19,26 @@ Bonus: an article can be marked as "breaking news". If this is the case, the tit
 
  require_once 'content.php';
 
- class Article extends Content 
+ class Vacancy extends Content 
  {
-     public bool $isBreakingNews;
+    private string $title;
+    private string $text;
  
-     public function __construct(string $title, string $text, bool $isBreakingNews)
+     public function __construct(string $title, string $text)
      {
-         parent::__construct($title, $text); 
-         $this->isBreakingNews = $isBreakingNews;
+        parent::__construct($title, $text); 
+
      }
  
      public function displayTitle(): string {
-         return $this->isBreakingNews ? "BREAKING: {$this->title}" : $this->title;
+        return "{$this->title} - apply now!";
      }
  
      public function getText(): string
      {
-         return $this->text;
+        return $this->text;
      }
  }
 
- echo "<br>Article";
+ echo "<br>Vacancy";
 

@@ -26,7 +26,7 @@ Bonus: an article can be marked as "breaking news". If this is the case, the tit
     public string $text;
 
 
-    public function __construct(string $title,  string $text)
+    public function __construct(string $title, string $text)
     {
         parent::__construct($title, $text);
     }
@@ -43,3 +43,4 @@ Bonus: an article can be marked as "breaking news". If this is the case, the tit
 }
 
 echo "<br>Adds";
+
